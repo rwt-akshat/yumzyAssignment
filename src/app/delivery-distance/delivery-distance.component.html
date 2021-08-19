@@ -1,0 +1,47 @@
+<div class="container">
+    <h3 class="display-6 m-3" style="text-align: center;">Yumzy Assignment</h3>
+    <form [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
+        <div formArrayName="distances">
+            <div class="row gy-2 gx-3 align-items-center" *ngFor="let d of distances().controls;index as i"
+                [formGroupName]="i">
+                <div class="col-sm-4">
+                    <div class="input-group align-items-center">
+                        <div class="lead fs-6 me-2">Between a distance of</div>
+                        <input type="number" class="form-control" placeholder="From" formControlName="from">
+                        <div class="input-group-text">KM</div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="input-group align-items-center">
+                        <div class="lead fs-6 me-2">To</div>
+                        <input type="number" class="form-control" placeholder="To" formControlName="to">
+                        <div class="input-group-text">KM</div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group align-items-center">
+                        <div class="lead fs-6 me-2">Collect a delivery fee of</div>
+                        <input type="number" class="form-control" placeholder="Delivery fees"
+                        formControlName="deliveryFees">
+                        <div class="input-group-text">INR</div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-2" *ngIf="distanceForm.get('distances')?.value.length-1 == i">
+                    <button (click)="addDistance()" class="addBtn btn mt-1">+ Add</button>
+                </div>
+                <div class="col-sm-2" *ngIf="distanceForm.get('distances')?.value.length-1 != i">
+                    <button (click)="removeDistance(i)" class="btn btn-danger mt-1 rounded-pill">x</button>
+                </div>
+
+            </div>
+            <div class="fw-bold fs-6 text-danger my-2" *ngIf="errMsg">
+                {{errMsg}}
+            </div>
+        </div>
+
+        <div class=" mt-2">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+</div>

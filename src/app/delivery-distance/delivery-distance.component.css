@@ -1,0 +1,15 @@
+input{
+    margin: 5px;
+}
+span{
+    margin: 2px;
+}
+.addBtn{
+    font-weight: bold;
+}
+.addBtn:hover{
+    border: 1px solid blue;
+}
+.input-group .form-control {
+    margin: 0px !important;
+}
