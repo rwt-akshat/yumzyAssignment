@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="display-6 m-3" style="text-align: center;">Yumzy Assignment</h3>
+    <h2 class="display-6 m-3" style="text-align: center;">Yumzy Assignment</h2>
     <form [formGroup]="distanceForm" (ngSubmit)="onSubmit()">
         <div formArrayName="distances">
             <div class="row gy-2 gx-3 align-items-center" *ngFor="let d of distances().controls;index as i"
